@@ -1,14 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio — Full Stack Developer</title>
+<meta name="description" content="Portfolio profesional de un Full Stack Developer. Proyectos, skills, contacto." />
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Eduardo Acevedo García</h1>
-    <p>Ingeniero de TI / Web front Developer</p>
+<body class="grid-bg">
+  <!-- 🎯 Loader -->
+  <div class="loader" id="loader"><div class="ring"></div></div>
+
+  <!-- 🖱️ Cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- 🟩 Partículas -->
+  <canvas id="particles"></canvas>
+
+  <!-- 🔝 Navbar -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="dot" aria-hidden="true"></div>
+        <span>dev<span style="color:var(--neon)">.portfolio</span></span>
+      </div>
+      <nav>
+        <ul id="navlinks">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre">Sobre mí</a></li>
+          <li><a href="#skills">Habilidades</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="toggle" id="themeToggle" title="Cambiar tema (oscuro/claro)" aria-label="Cambiar tema">
+        <i></i>
+      </div>
+
+      <div class="hamb" id="hamb" aria-label="Abrir menú">
+        <span></span>
+      </div>
+      <div class="mobile" id="mobile">
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre">Sobre mí</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 🦸 Hero -->
+    <section class="hero" id="inicio">
+      <div class="hero-card invisible">
+        <p class="hello">Hola, soy</p>
+        <h1><span class="typing" id="typing"></span></h1>
+        <div class="role">Full Stack Developer</div>
+        <p class="muted" style="max-width:64ch">Construyo productos web de alto impacto con foco en rendimiento, accesibilidad y experiencias que brillan en cualquier dispositivo.</p>
+        <div class="cta">
+          <a class="btn neon" href="#proyectos" id="ctaProjects">
+            Ver Proyectos
+            <span class="glow" aria-hidden="true"></span>
+          </a>
+          <a class="btn" href="#contacto">Contáctame</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 👤 Sobre mí -->
+    <section id="sobre">
+      <h2 class="section-title invisible">Sobre mí</h2>
+      <p class="section-sub muted invisible">Desarrollador full stack con pasión por las interfaces hermosas, APIs bien pensadas y ciclos CI/CD impecables.</p>
+      <div class="about invisible">
+        <div class="avatar">
+          <!-- Placeholder de imagen inline (SVG) -->
+          <img alt="Foto de perfil" src="data:image/svg+xml;utf8,
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'>
+            <defs>
+              <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+                <stop offset='0%' stop-color='%2300ff88'/>
+                <stop offset='100%' stop-color='%2300b3ff'/>
+              </linearGradient>
+            </defs>
+            <rect width='300' height='300' fill='%2310161c'/>
+            <circle cx='150' cy='110' r='60' fill='url(%23g)' opacity='.85'/>
+            <rect x='75' y='190' width='150' height='90' rx='20' fill='url(%23g)' opacity='.6'/>
+          </svg>">
+        </div>
+        <div>
+          <p style="max-width:70ch">Me especializo en JavaScript/TypeScript, Node.js, arquitecturas basadas en eventos y aplicaciones SPA/SSR. Me encanta crear sistemas escalables, accesibles y con DX de primera. Disfruto liderar desde el código: diseño de componentes, performance budgets, pruebas automatizadas y observabilidad.</p>
+          <p class="muted">Cuando no estoy codeando, experimento con gráficos en Canvas/WebGL, diseño sonoro y fotografía.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🛠️ Habilidades -->
+    <section id="skills">
+      <h2 class="section-title invisible">Habilidades & Tecnologías</h2>
+      <p class="section-sub muted invisible">Frontend, Backend, Bases de datos y DevOps — con interacción y animaciones por todas partes.</p>
+      <div class="skills">
+        <div class="skill-groups">
+          <div class="skill-card invisible">
+            <h4>Frontend ✨</h4>
+            <div class="pills">
+              <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JS/TS</span><span class="pill">Web Components</span><span class="pill">Canvas</span>
+            </div>
+            <div class="bar" aria-label="Nivel Frontend"><span data-level="92"></span></div>
+          </div>
+
+          <div class="skill-card invisible">
+            <h4>Backend ⚙️</h4>
+            <div class="pills">
+              <span class="pill">Node.js</span><span class="pill">REST</span><span class="pill">GraphQL</span><span class="pill">WebSockets</span><span class="pill">Auth/OAuth</span>
+            </div>
+            <div class="bar" aria-label="Nivel Backend"><span data-level="88"></span></div>
+          </div>
+
+          <div class="skill-card invisible">
+            <h4>Bases de Datos 🗄️</h4>
+            <div class="pills">
+              <span class="pill">PostgreSQL</span><span class="pill">MySQL</span><span class="pill">MongoDB</span><span class="pill">Redis</span>
+            </div>
+            <div class="bar" aria-label="Nivel DB"><span data-level="85"></span></div>
+          </div>
+
+          <div class="skill-card invisible">
+            <h4>DevOps 🚀</h4>
+            <div class="pills">
+              <span class="pill">Docker</span><span class="pill">CI/CD</span><span class="pill">Nginx</span><span class="pill">Cloud</span><span class="pill">Observabilidad</span>
+            </div>
+            <div class="bar" aria-label="Nivel DevOps"><span data-level="78"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📦 Proyectos -->
+    <section id="proyectos">
+      <h2 class="section-title invisible">Proyectos</h2>
+      <p class="section-sub muted invisible">Diez proyectos seleccionados. Hover 3D, tarjetas elevadas y animación escalonada al cargar.</p>
+
+      <div class="projects-grid stagger" id="projects">
+        <!-- 10 cards con placeholders y botones -->
+        <!-- Helper: función JS rellena automáticamente los 10 proyectos -->
+      </div>
+    </section>
+
+    <!-- 📮 Contacto -->
+    <section id="contacto">
+      <h2 class="section-title invisible">Contacto</h2>
+      <p class="section-sub muted invisible">¿Tienes una idea? Hablemos. Respuesta rápida y propuesta técnica clara.</p>
+
+      <form id="form">
+        <div>
+          <label for="name">Nombre</label>
+          <input id="name" name="name" placeholder="Tu nombre" required minlength="2" />
+          <div class="msg" id="msg-name"></div>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" placeholder="tu@email.com" inputmode="email" required />
+          <div class="msg" id="msg-email"></div>
+        </div>
+
+        <div>
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto" required minlength="10"></textarea>
+          <div class="msg" id="msg-message"></div>
+        </div>
+
+        <button class="btn neon" type="submit">Enviar Mensaje <span class="glow"></span></button>
+        <div class="muted" id="form-status" aria-live="polite" style="min-height:24px"></div>
+
+        <div class="socials">
+          <a class="icon" href="#" title="GitHub" aria-label="GitHub">🐙</a>
+          <a class="icon" href="#" title="LinkedIn" aria-label="LinkedIn">🔗</a>
+          <a class="icon" href="mailto:dev@example.com" title="Email" aria-label="Email">✉️</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- 🔼 Volver arriba -->
+  <div class="to-top" id="toTop"><a class="btn small" href="#inicio">↑ Arriba</a></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
